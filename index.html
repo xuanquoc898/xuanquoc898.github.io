@@ -7,6 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <style>
+    :root {
+      --bg-color: #0d1117;
+      --container-bg: #161b22;
+      --text-color: #c9d1d9;
+      --title-color: #58a6ff;
+      --subtitle-color: #8b949e;
+      --section-title-color: #79c0ff;
+    }
+
+    body.light {
+      --bg-color: #f5f5f5;
+      --container-bg: #ffffff;
+      --text-color: #1f2937;
+      --title-color: #2563eb;
+      --subtitle-color: #6b7280;
+      --section-title-color: #1d4ed8;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,16 +33,32 @@
 
     body {
       font-family: 'Quicksand', sans-serif;
-      background: #0d1117;
-      color: #c9d1d9;
+      background: var(--bg-color);
+      color: var(--text-color);
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 40px 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    .toggle-theme:hover {
+      background: none;
     }
 
     .container {
-      background: #161b22;
+      background: var(--container-bg);
       padding: 30px;
       border-radius: 20px;
       max-width: 700px;
@@ -44,7 +78,7 @@
       border-radius: 50%;
       overflow: hidden;
       margin: 0 auto 20px;
-      border: 4px solid #58a6ff;
+      border: 4px solid var(--title-color);
       animation: float 4s ease-in-out infinite;
     }
 
@@ -62,14 +96,14 @@
     h1 {
       text-align: center;
       font-size: 2rem;
-      color: #58a6ff;
+      color: var(--title-color);
       margin-bottom: 10px;
     }
 
     .subtitle {
       text-align: center;
       margin-bottom: 10px;
-      color: #8b949e;
+      color: var(--subtitle-color);
     }
 
     .section {
@@ -78,7 +112,7 @@
 
     .section h2 {
       font-size: 1.3rem;
-      color: #79c0ff;
+      color: var(--section-title-color);
       margin-bottom: 8px;
     }
 
@@ -118,6 +152,16 @@
   </style>
 </head>
 <body>
+  <button class="toggle-theme" onclick="toggleTheme()">
+    <lord-icon
+      id="themeIcon"
+      src="https://cdn.lordicon.com/dqxvvqzi.json"
+      trigger="hover"
+      colors="primary:#ffffff,secondary:#3f6ad8"
+      style="width:40px;height:40px">
+    </lord-icon>
+  </button>
+
   <div class="container">
     <div class="avatar">
       <img src="avatar.jpg" alt="Mai Xuân Quốc" />
@@ -163,5 +207,28 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const themeIcon = document.getElementById('themeIcon');
+
+    function setIcon(theme) {
+      themeIcon.setAttribute("src", theme === 'light' 
+        ? "https://raw.githubusercontent.com/xuanquoc898/xuanquoc898.github.io/main/sun.png" // icon mặt trời
+        : "https://cdn.lordicon.com/sswuvtso.json"); // icon mặt trăng
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      setIcon(isLight ? 'light' : 'dark');
+    }
+
+    window.onload = function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'light') document.body.classList.add('light');
+      setIcon(savedTheme);
+    };
+  </script>
 </body>
 </html>
