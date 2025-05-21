@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chào mừng!</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Web Có Animation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .box {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      animation: scaleIn 1s ease-out;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    h1 {
+      color: #5a67d8;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #4a5568;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Chào mừng đến với sunny898.me!</h1>
-        <p>Trang web đơn giản này đang hoạt động.</p>
-    </div>
+  <div class="box">
+    <h1>Xin chào!</h1>
+    <p>Đây là trang có animation đơn giản và bắt mắt. sunny898.me</p>
+  </div>
 </body>
 </html>
