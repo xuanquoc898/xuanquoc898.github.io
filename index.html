@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mai Xuân Quốc | Giới thiệu bản thân</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -65,6 +66,12 @@
       margin-bottom: 10px;
     }
 
+    .subtitle {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #8b949e;
+    }
+
     .section {
       margin: 20px 0;
     }
@@ -90,25 +97,23 @@
       margin-top: 30px;
     }
 
-    .contact a {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 10px;
-      background: #238636;
-      color: white;
-      border-radius: 30px;
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+      font-size: 1rem;
+    }
+
+    .contact-text a {
+      color: #2ea043;
       text-decoration: none;
-      transition: background 0.3s;
+      font-weight: 600;
     }
 
-    .contact a:hover {
-      background: #2ea043;
-    }
-
-    .subtitle {
-      text-align: center;
-      margin-bottom: 10px;
-      color: #8b949e;
+    .contact-text a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -124,7 +129,7 @@
       <h2>💻 Kỹ năng</h2>
       <ul>
         <li>Ngôn ngữ: C, C++</li>
-        <li>IDE: Visual Studio Code </li>
+        <li>IDE: Visual Studio Code</li>
         <li>Tools: IDA, Kali Linux</li>
       </ul>
     </div>
@@ -144,7 +149,18 @@
     </div>
 
     <div class="contact">
-      <p>📧 Liên hệ: <a href="mailto:quocmai456789@gmail.com">quocmai456789@gmail.com</a></p>
+      <div class="contact-row">
+        <lord-icon
+          src="https://cdn.lordicon.com/ijhuniiu.json"
+          trigger="loop"
+          delay="2000"
+          stroke="bold"
+          style="width:30px;height:30px;">
+        </lord-icon>
+        <span class="contact-text">
+          Liên hệ: <a href="mailto:quocmai456789@gmail.com">quocmai456789@gmail.com</a>
+        </span>
+      </div>
     </div>
   </div>
 </body>
